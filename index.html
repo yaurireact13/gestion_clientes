@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlantic City - Gestión de Clientes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/footer_sep.css">
+  <link rel="stylesheet" href="css/slider.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <p>holaaa</p>
+
+  <!-----------------------FAVICON----------------------------->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <!-----------------------/FAVICON----------------------------->
+
+  <!-----------------------META TAGS----------------------------->
+  <meta name="description" content="Sistema de Gestión de Clientes para Atlantic City Casino.">
+  <meta name="keywords" content="Atlantic City, Casino, Gestión de Clientes, Promociones, Análisis, Reportes">
+  <!-----------------------/META TAGS----------------------------->
+<!-----------------------HEADER----------------------------->
+<header class="main-header">
+  <div class="header-inner">
+    <div class="logo">
+      🎰 <span"><a href="index.html"></a>Atlantic City</span>
+    </div>
+    <p class="subtitle">Sistema de Gestión de Clientes</p>
+    <nav class="nav-menu">
+      <a href="clientes/listar_clientes.php">Clientes</a>
+      <a href="#" class="btn-volver">← Cerrar Sesion</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+<!-----------------------/HEADER----------------------------->
+
+
+  <!-----------------------SECTION SLIDER----------------------------->
+  <section class="slider">
+    <div class="slides">
+      <div class="slide active" ><img src="img/slide_1.jp" alt="Imagen contenido 1 "></div>
+      <div class="slide"><img src="img/slider_2.jp" alt="Imagen contenido 2"></div>
+      <div class="slide"><img src="img/slider_3.jp" alt="Imagen contenido 3"></div>
+    </div>
+    <div class="slider-controls">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+  </section>
+  <!-----------------------SECTION SLIDER----------------------------->
+
+  <!-----------------------MAIN MENU----------------------------->
+  <main class="menu">
+    <div class="card" onclick="location.href='clientes/registrar_cliente.html'">👤 Clientes</div>
+    <div class="card" onclick="location.href='promociones/crear_promocion.html'">🎁 Promociones</div>
+    <div class="card" onclick="location.href='analisis/analisis.html'">📊 Análisis</div>
+    <div class="card" onclick="location.href='reporte/reportes.php'">📑 Reportes</div>
+    <div class="card" onclick="location.href='atencion/registrar_solicitud.php'">📞 Atención</div>
+  </main>
+ <!-----------------------MAIN MENU----------------------------->
+
+  <!-----------------------FOOTER----------------------------->
+  
+  <footer>
+    <div class="footer-contenedor">
+      <div class="footer-col">
+        <h4>Atlantic City</h4>
+        <p>Sistema de Gestión de Clientes para entretenimiento y fidelización.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="clientes/registrar_cliente.html">Clientes</a></li>
+          <li><a href="promociones/crear_promocion.html">Promociones</a></li>
+          <li><a href="analisis/analisis.html">Análisis</a></li>
+          <li><a href="reporte/reportes.php">Reportes</a></li>
+          <li><a href="atencion/registrar_solicitud.php">Atención</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>Email: soporte@atlanticcity.com</p>
+        <p>Teléfono: +51 921 876 815</p>
+        <p>Lima, Perú</p>
+      </div>
+    </div>
+    <a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+    </a>
+    <p class="copyright">&copy; 2025 Atlantic City Casino. Todos los derechos reservados.</p>
+  </footer>
+   <!-----------------------FOOTER----------------------------->
+
+  <script src="js/scripts.js"></script>
+</body>
+</html> 
