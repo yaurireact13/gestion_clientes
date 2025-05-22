@@ -1,0 +1,19 @@
+ /*estilos del boton */
+.btn {
+    display: inline-block;
+    background-color: gold;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn:hover {
+    background-color: darkorange;
+    color: white;
+    text-decoration: none;
+}
