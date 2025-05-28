@@ -12,7 +12,7 @@ if ($conexion->connect_error) {
 }
 
 // Datos para los reportes
-$clientesVIP = $conexion->query("SELECT COUNT(*) AS total FROM clientes WHERE segmento = 'VIP'")->fetch_assoc()['total'];
+$clientesVIP = $conexion->query("SELECT COUNT(*) AS total FROM clientes WHERE segmento_objetivo = 'VIP'")->fetch_assoc()['total'];
 $clientesRegulares = $conexion->query("SELECT COUNT(*) AS total FROM clientes WHERE segmento = 'Regular'")->fetch_assoc()['total'];
 $gastoPromociones = $conexion->query("SELECT SUM(gasto) AS total FROM transacciones WHERE tipo = 'promocion'")->fetch_assoc()['total'];
 $clientesConPromociones = $conexion->query("SELECT COUNT(DISTINCT cliente_id) AS total FROM transacciones WHERE tipo = 'promocion'")->fetch_assoc()['total'];
