@@ -2,9 +2,9 @@
 <?php
 if (!isset($totalClientes)) {
   // Habilitar errores para desarrollo
+  include '../conexion.php';
   error_reporting(E_ALL);
   ini_set('display_errors', 1);
-  include '../conexion.php';
   $totalClientes = $conn->query("SELECT COUNT(*) as total FROM clientes")->fetch_assoc()['total'];
   $clientesVIP = $conn->query("SELECT COUNT(*) as total FROM clientes WHERE segmento = 'VIP'")->fetch_assoc()['total'];
   $promocionesActivas = $conn->query("SELECT COUNT(*) as total FROM promociones WHERE estado = 'Activa'")->fetch_assoc()['total'];
