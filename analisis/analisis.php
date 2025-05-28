@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "atlantic_city";
+$database = "atlantic_city_db";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
