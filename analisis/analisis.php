@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // 1. Conexión a la base de datos (ajusta estos datos)
 $servername = "localhost";
 $username = "root";
@@ -12,11 +13,16 @@ if ($conn->connect_error) {
 }
 
 // 2. Consultas para análisis
+=======
+include '../conexion.php';
+
+>>>>>>> 7972f14c5c590cdec927a2a88ac367784b621443
 $totalClientes = $conn->query("SELECT COUNT(*) as total FROM clientes")->fetch_assoc()['total'];
 $clientesVIP = $conn->query("SELECT COUNT(*) as total FROM clientes WHERE segmento = 'VIP'")->fetch_assoc()['total'];
 $promocionesActivas = $conn->query("SELECT COUNT(*) as total FROM promociones WHERE estado = 'Activa'")->fetch_assoc()['total'];
 $topCliente = $conn->query("SELECT nombre FROM clientes ORDER BY gasto_total DESC LIMIT 1")->fetch_assoc()['nombre'] ?? 'Sin datos';
 
+<<<<<<< HEAD
 ?>
 
 <!DOCTYPE html>
@@ -64,3 +70,8 @@ $topCliente = $conn->query("SELECT nombre FROM clientes ORDER BY gasto_total DES
 
 </body>
 </html>
+=======
+// Hacer variables accesibles para HTML
+include 'analisis.html';
+?>
+>>>>>>> 7972f14c5c590cdec927a2a88ac367784b621443
