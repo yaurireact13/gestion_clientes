@@ -1,0 +1,93 @@
+/* Contenedor interno del header */
+.main-header .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo (texto) */
+.main-header .logo {
+  font-size: 2rem;
+  color: gold;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.main-header .logo span {
+  margin-left: 8px;
+}
+
+/* Subtítulo bajo el logo (solo en pantallas grandes) */
+.subtitle {
+  flex-basis: 100%;
+  color: #ccc;
+  margin-top: 4px;
+  font-size: 1rem;
+}
+@media (min-width: 600px) {
+  .subtitle {
+    flex-basis: auto;
+    margin: 0 20px;
+  }
+}
+
+/* Navegación principal */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 15px;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: #ddd;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+.nav-menu a:hover {
+  background: gold;
+  color: #000;
+}
+@media (min-width: 600px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin: 0;
+  }
+}
+
+/* Botón “Volver” reutilizado */
+.btn-volver {
+  background-color: #222;
+  color: gold !important;
+}
+.btn-volver:hover {
+  background-color: #444 !important;
+}
+
+/* Toggle menú móvil */
+.nav-toggle {
+  background: none;
+  border: none;
+  color: gold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+}
+@media (min-width: 600px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+/* Abrir/cerrar menú con JavaScript */
+.main-header.open .nav-menu {
+  display: flex;
+}

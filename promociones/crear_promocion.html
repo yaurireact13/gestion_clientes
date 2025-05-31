@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear Promoción - Atlantic City</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/btns.css">
+  <link rel="stylesheet" href="../css/footer_sep.css">
+</head>
+<body>
+  <!-------------------------HEADER-------------------------------->
+  <header>
+    <h1>🎁 Crear Nueva Promoción</h1>
+    <a href="../index.html" class="btn">🏠 Volver al inicio</a>
+  </header>
+<!-------------------------HEADER-------------------------------->
+
+<!-------------------------MAIN-------------------------------->
+  <main>
+    <form action="guardar_promocion.php" method="POST" class="formulario">
+      <input type="text" name="titulo" placeholder="Título de la promoción" required>
+      <textarea name="descripcion" placeholder="Descripción de la promoción"></textarea>
+      <label>Fecha de Inicio:</label>
+      <input type="date" name="fecha_inicio" required>
+      <label>Fecha de Fin:</label>
+      <input type="date" name="fecha_fin" required>
+      <input type="text" name="segmento_objetivo" placeholder="Segmento (ej: VIP, Jugadores frecuentes, Novato)">
+      <button type="submit">Guardar Promoción</button>
+    </form>
+  </main>
+  <!-------------------------MAIN-------------------------------->
+  <!------------------------Boton de whatsapp-------------------->
+<a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+    </a>
+
+<!------------------------Boton de whatsapp-------------------->
+
+
+</body>
+</html>
