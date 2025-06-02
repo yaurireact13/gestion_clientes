@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: radial-gradient(circle at top, #2c003e, #000);
+    background: radial-gradient(circle at top, #2992d8, #000);
     color: #fff;
     padding: 30px;
     text-align: center;
@@ -14,9 +14,8 @@ body {
   table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #1a1a1a;
-    color: #fff;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    background-color: #f0f0f0da;
+    color: #0a0a0a;
   }
   
   th, td {
@@ -59,7 +58,7 @@ body {
   }
   
   select, textarea, input[type="text"] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin-bottom: 15px;
     background-color: #2c003e;
