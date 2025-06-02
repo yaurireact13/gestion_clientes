@@ -23,6 +23,7 @@ $promocionesActivas = $conn->query("SELECT COUNT(*) as total FROM promociones")-
 <head>
   <meta charset="UTF-8" />
   <title>📊 Análisis - Atlantic City</title>
+  <link rel="stylesheet" href="../css/btns.css" />
 
 </head>
 <body>
@@ -95,6 +96,9 @@ a.btn {
       <h3>Promociones</h3>
       <p><?= $promocionesActivas ?></p>
     </div>
+    <div class="card">
+      <h3>Clientes Activos</h3>
+      <p><?= $totalClientes - $clientesVIP ?></p>
   </div>
 
 </body>
