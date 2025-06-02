@@ -79,7 +79,7 @@ body {
   .formulario textarea,
   .formulario button 
   .formulario option {
-    width: 100%;
+    width: 90%;
     background: #333;
     color: #fff;
     font-size: 1rem;
