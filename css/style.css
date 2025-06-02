@@ -77,7 +77,13 @@ body {
 
   .formulario input,
   .formulario textarea,
-  .formulario button {
+  .formulario button 
+  .formulario option {
+    width: 100%;
+    background: #333;
+    color: #fff;
+    font-size: 1rem;
+    margin: 5px 0;
     padding: 10px;
     border: none;
     border-radius: 5px;

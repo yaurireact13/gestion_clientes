@@ -1,0 +1,88 @@
+body {
+  background-color: #121018;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 40px;
+}
+
+h1 {
+  text-align: center;
+  color: #00f5d4;
+}
+
+.formulario {
+  max-width: 600px;
+  margin: auto;
+  background-color: #1c1a29;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.1);
+}
+
+.formulario label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.formulario input,
+.formulario textarea 
+{
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #2a263d;
+  color: #fff;
+
+}
+#estado {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #2a263d;
+  color: #fff;
+}
+
+.formulario textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-actualizar {
+  background-color: #00c896;
+  color: white;
+}
+
+.btn-actualizar:hover {
+  background-color: #00b285;
+}
+
+.btn-volver {
+  background-color: #ffc107;
+  color: black;
+}
+
+.btn-volver:hover {
+  background-color: #e0a800;
+}

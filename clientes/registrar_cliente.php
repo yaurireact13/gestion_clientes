@@ -13,8 +13,11 @@ $telefono = $_POST['telefono'];
 $preferencias = $_POST['preferencias'];
 $fecha = date("Y-m-d");
 
-$sql = "INSERT INTO clientes (nombre, apellido, dni, email, telefono, preferencias, fecha_registro)
-VALUES ('$nombre', '$apellido', '$dni', '$email', '$telefono', '$preferencias', '$fecha')";
+$segmento = $_POST['segmento'] ?? 'Regular'; 
+
+$sql = "INSERT INTO clientes (nombre, apellido, dni, email, telefono, preferencias, segmento, fecha_registro)
+VALUES ('$nombre', '$apellido', '$dni', '$email', '$telefono', '$preferencias', '$segmento', '$fecha')";
+
 
 if ($conexion->query($sql) === TRUE) {
   echo "<script>alert('Cliente registrado exitosamente'); window.location.href='listar_clientes.php';</script>";

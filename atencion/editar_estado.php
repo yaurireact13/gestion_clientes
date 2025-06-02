@@ -1,15 +1,31 @@
 <?php
 $conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
 
-$id = $_GET['id'];
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+$id = $_GET['id'] ?? 0;
+$id = (int)$id;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $nuevo_estado = $_POST['estado'];
+  $nuevo_estado = $_POST['estado'] ?? '';
 
-  $conexion->query("UPDATE solicitudes_atencion SET estado='$nuevo_estado' WHERE id=$id");
-
-  echo "✅ Estado actualizado correctamente. <a href='listar_solicitudes.php'>Volver a la lista</a>";
-  exit;
+  if ($nuevo_estado && in_array($nuevo_estado, ['pendiente', 'en proceso', 'resuelto'])) {
+    $stmt = $conexion->prepare("UPDATE solicitudes_atencion SET estado=? WHERE id=?");
+    $stmt->bind_param("si", $nuevo_estado, $id);
+    if ($stmt->execute()) {
+      header("Location: listar_solicitudes.php?mensaje=2");
+      exit;
+    } else {
+      echo "❌ Error al actualizar: " . htmlspecialchars($conexion->error);
+      exit;
+    }
+    $stmt->close();
+  } else {
+    echo "❌ Estado inválido.";
+    exit;
+  }
 }
 
 $resultado = $conexion->query("SELECT * FROM solicitudes_atencion WHERE id=$id");
@@ -25,10 +41,10 @@ $solicitud = $resultado->fetch_assoc();
   <link rel="stylesheet" href="../css/btns.css">
 </head>
 <body>
-  <h2>✏️ Cambiar Estado de la Solicitud #<?php echo $id; ?></h2>
+  <h2>✏️ Cambiar Estado de la Solicitud #<?php echo htmlspecialchars($id); ?></h2>
 
   <form method="POST">
-    <label>Estado actual: <strong><?php echo $solicitud['estado']; ?></strong></label><br><br>
+    <label>Estado actual: <strong><?php echo htmlspecialchars($solicitud['estado']); ?></strong></label><br><br>
 
     <label>Nuevo estado:</label>
     <select name="estado" required>
