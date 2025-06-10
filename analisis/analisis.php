@@ -24,6 +24,7 @@ $promocionesActivas = $conn->query("SELECT COUNT(*) as total FROM promociones")-
   <meta charset="UTF-8" />
   <title>📊 Análisis - Atlantic City</title>
   <link rel="stylesheet" href="../css/btns.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
 </head>
 <body>

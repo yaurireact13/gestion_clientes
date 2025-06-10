@@ -19,6 +19,7 @@ $conexion->close();
   <title>📑 Reportes - Atlantic City</title>
   <link rel="stylesheet" href="../css/footer_sep.css" />
   <link rel="stylesheet" href="../css/reporte.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 

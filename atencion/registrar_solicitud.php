@@ -36,6 +36,7 @@ $result = $conexion->query("SELECT id, nombre, apellido FROM clientes");
   <link rel="stylesheet" href="../css/atencion.css">
   <link rel="stylesheet" href="../css/btns.css">
   <link rel="stylesheet" href="../css/footer_sep.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>📞 Registrar Solicitud de Atención</h1>
