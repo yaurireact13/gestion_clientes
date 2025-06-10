@@ -24,6 +24,8 @@ $promocionesActivas = $conn->query("SELECT COUNT(*) as total FROM promociones")-
   <meta charset="UTF-8" />
   <title>📊 Análisis - Atlantic City</title>
   <link rel="stylesheet" href="../css/btns.css" />
+  <link rel="stylesheet" href="../css/grafico.css" />
+  <link rel="stylesheet" href="../css/footer_sep.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
 </head>
@@ -101,6 +103,70 @@ a.btn {
       <h3>Clientes Activos</h3>
       <p><?= $totalClientes - $clientesVIP ?></p>
   </div>
+  </div>
 
+<!-- CDN de Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Gráfico de barras pequeñio-->
+<canvas id="graficoClientes" width="100" height="50"></canvas>
+<script>
+  const ctx = document.getElementById('graficoClientes').getContext('2d');
+  const graficoClientes = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Total Clientes', 'Clientes VIP', 'Promociones', 'Clientes Activos'],
+      datasets: [{
+        label: 'Datos de Clientes',
+        data: [<?= $totalClientes ?>, <?= $clientesVIP ?>, <?= $promocionesActivas ?> , <?= $totalClientes - $clientesVIP ?>],
+        backgroundColor: [
+          'rgba(0, 123, 255, 0.6)',   
+          'rgba(255, 206, 86, 0.6)',  
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(153, 102, 255, 0.6)'   
+        ],
+        borderColor: [
+          'rgba(0, 123, 255, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: '#fff' }, 
+          grid: { color: 'rgba(255, 255, 255, 0.1)' }
+        },
+        x: {
+          ticks: { color: '#fff' },
+          grid: { color: 'rgba(255, 255, 255, 0.1)' }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: { color: '#fff' }
+        },
+        title: {
+          display: true,
+          color: '#fff',
+          font: {
+            size: 18
+          }
+        }
+      }
+    }
+  });
+</script>
+  </div>
+<div>
+  <a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp" />
+  </a>
+
+</div>
 </body>
 </html>
