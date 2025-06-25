@@ -97,19 +97,6 @@ CREATE TABLE `promociones_clientes` (
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `quejas`
---
-
-CREATE TABLE `quejas` (
-  `id` int(11) NOT NULL,
-  `cliente_id` int(11) DEFAULT NULL,
-  `fecha` datetime DEFAULT NULL,
-  `tipo` varchar(100) DEFAULT NULL,
-  `descripcion` text DEFAULT NULL,
-  `estado` varchar(50) DEFAULT 'Pendiente'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
