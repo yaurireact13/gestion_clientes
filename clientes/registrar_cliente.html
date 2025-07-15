@@ -18,26 +18,36 @@
 
   
 <!-------------------------MAIN-------------------------------->
-  <main>
-    <form action="registrar_cliente.php" method="POST" class="formulario">
-      <input type="text" name="nombre" placeholder="Nombre" required>
-      <input type="text" name="apellido" placeholder="Apellido" required>
-      <input type="text" name="dni" placeholder="DNI" required>
-      <input type="email" name="email" placeholder="Correo Electrónico">
-      <input type="text" name="telefono" placeholder="Teléfono">
-      <textarea name="preferencias" placeholder="Preferencias de juego"></textarea>
+<main>
+  <form action="registrar_cliente.php" method="POST" class="formulario">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="text" name="apellido" placeholder="Apellido" required>
+    <input type="text" name="dni" placeholder="DNI" required>
+    <input type="email" name="email" placeholder="Correo Electrónico">
+    <input type="text" name="telefono" placeholder="Teléfono">
+    <textarea name="preferencias" placeholder="Preferencias de juego"></textarea>
 
-      <label for="segmento">Segmento:</label>
-      <select name="segmento" id="segmento" required>
+    <label for="segmento">Segmento:</label>
+    <select name="segmento" id="segmento" required>
       <option value="">Selecciona segmento</option>
       <option value="VIP">VIP</option>
       <option value="Regular">Regular</option>
       <option value="Nuevo">Nuevo</option>
-      </select>
+    </select>
 
-      <button type="submit">Registrar Cliente</button>
-    </form>
-  </main>
+      <div class="form-group">
+        <label for="estado">Estado:</label>
+        <select name="estado" id="estado" required>
+          <option value="Activo">Activo</option>
+          <option value="Inactivo">Inactivo</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="btn">Registrar Cliente</button>
+  </form>
+</main>
+
 <!-------------------------MAIN-------------------------------->
 
 <!------------------------Boton de whatsapp-------------------->

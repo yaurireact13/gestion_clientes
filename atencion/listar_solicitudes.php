@@ -45,7 +45,7 @@ $resultado = $conexion->query("SELECT sa.id, c.nombre, c.apellido, sa.tipo, sa.d
 <head>
   <meta charset="UTF-8">
   <title>Solicitudes de Atención</title>
-  <link rel="stylesheet" href="../css/atencion.css">
+  <link rel="stylesheet" href="../css/attencion.css">
   <link rel="stylesheet" href="../css/btns.css">
 </head>
 <body>
@@ -82,6 +82,13 @@ $resultado = $conexion->query("SELECT sa.id, c.nombre, c.apellido, sa.tipo, sa.d
 
     <a href="../index.html" class="btn">🏠 Volver al inicio</a>
   </div>
+
+  <!------------------------Boton de whatsapp-------------------->
+<a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+    </a>
+
+<!------------------------Boton de whatsapp-------------------->
 </body>
 </html>
 

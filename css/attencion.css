@@ -1,0 +1,147 @@
+/* --- Estilos generales --- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #121018;
+  color: #eee;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #007bff;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 123, 255, 0.7);
+}
+
+/* --- Estilo para contenedor principal --- */
+.container {
+  width: 95%;
+  max-width: 1200px;
+}
+
+/* --- Botones y enlaces --- */
+a.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 18px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: 20px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+a.btn:hover {
+  background-color: #0056b3;
+}
+
+a {
+  color: #0dcaf0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #66b2ff;
+  text-decoration: underline;
+}
+
+.wsp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* --- Estilo tabla de solicitudes --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  background-color: #1e1e2f;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+thead tr {
+  background-color: #007bff;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #2a2a40;
+}
+
+tbody tr:hover {
+  background-color: #2d3f63;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+/* --- Formulario registrar solicitud --- */
+form {
+  background-color: #1e1e2f;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 500px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ccc;
+  text-align: left;
+}
+
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #2a2a3d;
+  border: 1px solid #007bff;
+  color: #eee;
+  border-radius: 6px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: #ff6b6b;
+  margin-bottom: 15px;
+}

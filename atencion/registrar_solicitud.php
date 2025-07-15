@@ -33,9 +33,11 @@ $result = $conexion->query("SELECT id, nombre, apellido FROM clientes");
 <head>
   <meta charset="UTF-8">
   <title>Registrar Solicitud</title>
-  <link rel="stylesheet" href="../css/atencion.css">
-  <link rel="stylesheet" href="../css/btns.css">
   <link rel="stylesheet" href="../css/footer_sep.css">
+  <link rel="stylesheet" href="../css/attencion.css">
+  <link rel="stylesheet" href="../css/btns.css">
+  
+
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -69,7 +71,9 @@ $result = $conexion->query("SELECT id, nombre, apellido FROM clientes");
     <button type="submit">Enviar Solicitud</button>
   </form>
 
-  <br><a href="../index.html" class="btn">🏠 Volver al Inicio</a>
+    <div><br><a href="../index.html" class="btn">🏠 Volver al Inicio</a>
+  <a href="listar_solicitudes.php" class="btn">📋 Ver Solicitudes</a></div>
+  
 
   <!------------------------Boton de whatsapp-------------------->
   <a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">

@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="../css/lista_cliente.css">
   <link rel="stylesheet" href="../css/btns.css">
 </head>
+<body>
 
 <?php
 $conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
@@ -37,5 +38,10 @@ while ($fila = $resultado->fetch_assoc()) {
 echo "</table>";
 echo "<a href='../index.html' class='btn'>🏠 Volver a Inicio";
 
+
 $conexion->close();
 ?>
+
+</body>
+
+</html>

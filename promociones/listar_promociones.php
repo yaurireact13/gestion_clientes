@@ -9,11 +9,15 @@ $resultado = $conexion->query("SELECT * FROM promociones");
   <meta charset="UTF-8">
   <title>🎁 Promociones Registradas</title>
   <link rel="stylesheet" href="../css/estilos_promociones.css">
+  <link rel="stylesheet" href="../css/btns.css">
+  <link rel="stylesheet" href="../css/footer_sep.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <h1>🎁 Promociones Registradas</h1>
-    <a class="btn-nueva" href="crear_promocion.html">+ Nueva Promoción</a>
+      <a class="btn-nueva" href="asignar_promocion.php">🎯 Asignar Promoción</a>
+      <a class="btn-nueva" href="listar_promociones_clientes.php">📋 Ver Asignaciones</a>
     <table>
       <thead>
         <tr>
@@ -43,7 +47,15 @@ $resultado = $conexion->query("SELECT * FROM promociones");
       </tbody>
     </table>
     <a class="btn-volver" href="../index.html">🏠 Volver al inicio</a>
+    <a class="btn-nueva" href="crear_promocion.html">+ Nueva Promoción</a>
   </div>
   
+  <!------------------------Boton de whatsapp-------------------->
+<a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+    </a>
+
+<!------------------------Boton de whatsapp-------------------->
+
 </body>
 </html>
