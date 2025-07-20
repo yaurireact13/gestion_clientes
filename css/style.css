@@ -62,6 +62,7 @@ body {
 
 
   /*FORMULARIO registro de cliente */
+/*---------------------------FORMULARIO---------------------------*/
 
   .formulario {
     display: flex;
@@ -102,5 +103,3 @@ body {
   .logo{
     cursor: pointer;
   }
-
-  

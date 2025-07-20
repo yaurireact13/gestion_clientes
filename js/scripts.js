@@ -32,3 +32,13 @@
 
   // Inicializar
   showSlide(0);
+
+//---------------FOOTER-------------------------//
+  const yearSpan = document.getElementById('current-year');
+  document.addEventListener('DOMContentLoaded', () => {
+    if(yearSpan){
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  }
+);
+//---------------FOOTER-------------------------//
