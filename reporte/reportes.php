@@ -43,7 +43,7 @@ $conexion->close();
       <p><?= $clientesRegulares ?></p>
     </div>
     <div class="card">
-      <h3>Gasto Total de Clientes</h3>
+      <h3 id ="edit_"><a href="../historial/listar_historial.php" style="text-decoration:none; color: #66b2ff; ">Gasto Total de Clientes</a></h3>
       <p>S/ <?= number_format($gastoClientes, 2) ?></p>
     </div>
     <div class="card">

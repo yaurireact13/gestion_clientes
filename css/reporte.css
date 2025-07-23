@@ -49,17 +49,20 @@ a.btn:hover {
   flex: 1 1 220px;
   text-align: center;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+  cursor: pointer;
 }
 
 .card h3 {
   margin-bottom: 15px;
   font-size: 1.3rem;
   color: #66b2ff;
+  cursor: pointer;
 }
 
 .card p {
@@ -67,6 +70,10 @@ a.btn:hover {
   font-weight: bold;
   color: #0dcaf0;
   margin: 0;
+}
+#edit_ {
+  color: #ffc107;
+  text-decoration: none;
 }
 
 .exportar {

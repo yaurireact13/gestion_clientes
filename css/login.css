@@ -1,0 +1,83 @@
+/* Fondo general */
+body {
+  background: #0f172a; /* Azul oscuro noche */
+  color: #f1f5f9;       /* Texto claro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Contenedor del formulario */
+.container {
+  background: #1e293b; /* Azul grisáceo oscuro */
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  color: #38bdf8; /* Azul celeste pastel */
+  margin-bottom: 30px;
+}
+
+/* Campos de entrada */
+form input {
+  width: 90%;
+  padding: 14px 16px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #334155;
+  color: #f1f5f9;
+  transition: 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  background: #475569;
+  box-shadow: 0 0 0 2px #38bdf8;
+}
+
+/* Botón */
+button {
+  width: 95%;
+  padding: 14px;
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #0ea5e9;
+  color: #fff;
+}
+
+/* Texto inferior */
+p {
+  margin-top: 20px;
+  text-align: center;
+}
+
+p a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
