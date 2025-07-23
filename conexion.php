@@ -4,9 +4,9 @@ $user = "root";
 $pass = "";
 $db = "atlantic_city_db";
 
-$conn = new mysqli($host, $user, $pass, $db);
+$conexion = new mysqli($host, $user, $pass, $db); 
 
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+if ($conexion->connect_error) {
+    die("Error al conectar con la base de datos: " . $conexion->connect_error);
 }
 ?>

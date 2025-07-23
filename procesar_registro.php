@@ -5,7 +5,7 @@ $usuario = $_POST['usuario'];
 $clave = password_hash($_POST['clave'], PASSWORD_DEFAULT);
 
 $sql = "INSERT INTO usuarios (usuario, clave) VALUES (?, ?)";
-$stmt = $conn->prepare($sql);
+$stmt = $conexion->prepare($sql);
 $stmt->bind_param("ss", $usuario, $clave);
 
 if ($stmt->execute()) {
