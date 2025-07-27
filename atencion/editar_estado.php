@@ -38,6 +38,7 @@ $solicitud = $resultado->fetch_assoc();
   <meta charset="UTF-8">
   <title>Editar Estado</title>
   <link rel="stylesheet" href="../css/editar_estados.css">
+  <link rel= ""stylesheet" href="../css/btns.css">
 </head>
 <body>
   <h2>✏️ Cambiar Estado de la Solicitud #<?php echo htmlspecialchars($id); ?></h2>
