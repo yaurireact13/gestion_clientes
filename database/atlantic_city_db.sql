@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-08-2025 a las 01:38:07
+-- Tiempo de generación: 06-08-2025 a las 03:04:02
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -142,16 +142,19 @@ CREATE TABLE `mensajes_contacto` (
   `email` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `mensaje` text DEFAULT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
+  `cliente_id` int(11) DEFAULT NULL,
+  `usuario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `mensajes_contacto`
 --
 
-INSERT INTO `mensajes_contacto` (`id`, `nombre`, `email`, `telefono`, `mensaje`, `fecha`) VALUES
-(2, 'CLAUDIA', 'yaurileonjob@gmail.com', '929331095', 'xd', '2025-07-20 18:05:25'),
-(3, 'Cristian', 'realstorechatgptplus@gmail.com', '9 4960 9925', 'hola', '2025-07-23 01:45:00');
+INSERT INTO `mensajes_contacto` (`id`, `nombre`, `email`, `telefono`, `mensaje`, `fecha`, `cliente_id`, `usuario_id`) VALUES
+(2, 'CLAUDIA', 'yaurileonjob@gmail.com', '929331095', 'xd', '2025-07-20 18:05:25', NULL, NULL),
+(3, 'Cristian', 'realstorechatgptplus@gmail.com', '9 4960 9925', 'hola', '2025-07-23 01:45:00', NULL, NULL),
+(4, 'LUIS ALBERTO', 'sheylarosa56@gmail.com', '956115222', 'Tengo problemas al ingresar un nuevo usuario', '2025-08-06 00:53:46', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -381,7 +384,9 @@ ALTER TABLE `historial`
 -- Indices de la tabla `mensajes_contacto`
 --
 ALTER TABLE `mensajes_contacto`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_mensaje_cliente` (`cliente_id`),
+  ADD KEY `fk_mensajes_contacto_usuario` (`usuario_id`);
 
 --
 -- Indices de la tabla `promociones`
@@ -438,7 +443,7 @@ ALTER TABLE `historial`
 -- AUTO_INCREMENT de la tabla `mensajes_contacto`
 --
 ALTER TABLE `mensajes_contacto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `promociones`
@@ -479,6 +484,13 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `historial`
   ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`);
+
+--
+-- Filtros para la tabla `mensajes_contacto`
+--
+ALTER TABLE `mensajes_contacto`
+  ADD CONSTRAINT `fk_mensaje_cliente` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`),
+  ADD CONSTRAINT `fk_mensajes_contacto_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 
 --
 -- Filtros para la tabla `promociones_clientes`
