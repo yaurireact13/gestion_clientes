@@ -7,14 +7,21 @@
 <body>
 
 <?php
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
+// ---------------------------------------------
+// Script para mostrar la lista de clientes registrados
+// Incluye conexión, consulta y renderizado de la tabla
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
 
 if ($conexion->connect_error) {
   die("Conexión fallida: " . $conexion->connect_error);
 }
 
+// Consulta para obtener todos los clientes
 $resultado = $conexion->query("SELECT * FROM clientes");
 
+// Renderiza la tabla de clientes
 echo "<h1>📋 Lista de Clientes</h1>";
 echo "<a href='registrar_cliente.html' class='btn'>+ Nuevo Cliente</a><br><br>";
 echo "<table border='1' cellpadding='10'>
@@ -38,8 +45,7 @@ while ($fila = $resultado->fetch_assoc()) {
 echo "</table>";
 echo "<a href='../index.html' class='btn'>🏠 Volver a Inicio";
 
-
-$conexion->close();
+$conexion->close(); // Cierra la conexión
 ?>
 
 </body>

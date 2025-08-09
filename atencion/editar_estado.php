@@ -1,5 +1,11 @@
+
 <?php
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
+// ---------------------------------------------
+// Script para editar el estado de una solicitud de atención
+// Incluye conexión, obtención de datos, actualización y formulario
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
@@ -8,6 +14,7 @@ if ($conexion->connect_error) {
 $id = $_GET['id'] ?? 0;
 $id = (int)$id;
 
+// Si se envió el formulario por POST, actualiza el estado
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $nuevo_estado = $_POST['estado'] ?? '';
 
@@ -28,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   }
 }
 
+// Obtener los datos actuales de la solicitud
 $resultado = $conexion->query("SELECT * FROM solicitudes_atencion WHERE id=$id");
 $solicitud = $resultado->fetch_assoc();
 ?>

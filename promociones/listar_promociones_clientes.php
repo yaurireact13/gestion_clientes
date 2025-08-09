@@ -1,32 +1,38 @@
-<?php
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
 
-// Obtener segmentos únicos
+<?php
+// ---------------------------------------------
+// Script para mostrar la lista de promociones asignadas a clientes
+// Incluye conexión, filtros, consulta dinámica y renderizado de tabla
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
+
+// Obtener segmentos únicos para el filtro
 $segmentos_result = $conexion->query("SELECT DISTINCT segmento FROM clientes");
 
-// Capturar filtros
+// Capturar filtros enviados por el formulario
 $fecha_inicio = $_POST['fecha_inicio'] ?? '';
 $fecha_fin = $_POST['fecha_fin'] ?? '';
 $segmento_filtro = $_POST['segmento_objetivo'] ?? '';
 
 // Construir consulta con filtros dinámicos
 $query = "SELECT c.nombre, c.apellido, p.titulo AS promocion, p.fecha_inicio, p.fecha_fin
-          FROM clientes c
-          JOIN promociones_clientes pc ON c.id = pc.cliente_id
-          JOIN promociones p ON pc.promocion_id = p.id";
+      FROM clientes c
+      JOIN promociones_clientes pc ON c.id = pc.cliente_id
+      JOIN promociones p ON pc.promocion_id = p.id";
 
 $condiciones = [];
 
 if (!empty($segmento_filtro)) {
-    $condiciones[] = "c.segmento = '$segmento_filtro'";
+  $condiciones[] = "c.segmento = '$segmento_filtro'";
 }
 
 if (!empty($fecha_inicio) && !empty($fecha_fin)) {
-    $condiciones[] = "p.fecha_inicio >= '$fecha_inicio' AND p.fecha_fin <= '$fecha_fin'";
+  $condiciones[] = "p.fecha_inicio >= '$fecha_inicio' AND p.fecha_fin <= '$fecha_fin'";
 }
 
 if (!empty($condiciones)) {
-    $query .= " WHERE " . implode(' AND ', $condiciones);
+  $query .= " WHERE " . implode(' AND ', $condiciones);
 }
 
 $resultado = $conexion->query($query);

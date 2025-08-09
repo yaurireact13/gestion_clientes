@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/footer_sep.css">
 </head>
 <body>
+  <!-- Formulario de registro de nuevo usuario -->
   <form action="procesar_registro.php" method="POST">
     <h2>Registro</h2>
     <input type="text" name="usuario" placeholder="Usuario" required>
@@ -14,8 +15,9 @@
     <button type="submit">Registrarse</button>
     <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión</a></p>
   </form>
-        <a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
-      <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
-    </a>
+  <!-- Botón de WhatsApp para contacto rápido -->
+  <a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+  </a>
 </body>
 </html>

@@ -8,9 +8,11 @@
   <link rel= "stylesheet" href ="css/footer_sep.css">
 </head>
 <body>
+    <!-- Formulario de inicio de sesión -->
     <form action="validar_login.php" method="POST">
         <h2>Iniciar sesión</h2>
         <?php
+            // Muestra mensajes de error según el parámetro recibido por GET
             if (isset($_GET['error'])) {
                 if ($_GET['error'] == 'incorrecto') {
                     echo '<p class="error">Contraseña incorrecta</p>';
@@ -27,7 +29,8 @@
     <p>¿No tienes cuenta? <a href="register.php">Regístrate</a></p>
   </form>
 
-      <a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
+    <!-- Botón de WhatsApp para contacto rápido -->
+    <a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
       <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
     </a>
 </body>

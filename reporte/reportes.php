@@ -2,23 +2,31 @@
 $conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
 if ($conexion->connect_error) {
   die("Conexión fallida: " . $conexion->connect_error);
+
+<?php
+// ---------------------------------------------
+// Script para mostrar reportes generales del casino
+// Incluye conexión y consultas de reportes
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
+if ($conexion->connect_error) {
+  die("Conexión fallida: " . $conexion->connect_error);
 }
 
+// Consulta para obtener el total de clientes VIP
 $clientesVIP = $conexion->query("SELECT COUNT(*) AS total FROM clientes WHERE segmento = 'VIP'")->fetch_assoc()['total'];
+// Consulta para obtener el total de clientes regulares
 $clientesRegulares = $conexion->query("SELECT COUNT(*) AS total FROM clientes WHERE segmento = 'Regular'")->fetch_assoc()['total'];
 
-// Cambiado: ahora se muestra el gasto total de todos los clientes
+// Consulta para obtener el gasto total de todos los clientes
 $gastoClientes = $conexion->query("SELECT SUM(gasto) AS total FROM historial")->fetch_assoc()['total'] ?? 0;
 
-// Clientes únicos con historial (para mostrar participación)
+// Consulta para obtener la cantidad de clientes únicos con historial
 $clientesConConsumo = $conexion->query("SELECT COUNT(DISTINCT cliente_id) AS total FROM historial")->fetch_assoc()['total'];
 
-$conexion->close();
+$conexion->close(); // Cierra la conexión
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
   <meta charset="UTF-8" />
   <title>📁 Reportes - Atlantic City</title>
   <link rel="stylesheet" href="../css/footer_sep.css" />

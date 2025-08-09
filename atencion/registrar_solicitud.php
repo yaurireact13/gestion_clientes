@@ -1,5 +1,10 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
+// ---------------------------------------------
+// Script para registrar una nueva solicitud de atención
+// Valida datos del formulario, inserta en la base de datos y muestra el formulario
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
@@ -9,11 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $tipo = $_POST['tipo'] ?? '';
     $descripcion = $_POST['descripcion'] ?? '';
 
+    // Valida que todos los campos sean obligatorios
     if ($cliente_id && $tipo && $descripcion) {
         $stmt = $conexion->prepare("INSERT INTO solicitudes_atencion (cliente_id, tipo, descripcion) VALUES (?, ?, ?)");
         $stmt->bind_param("iss", $cliente_id, $tipo, $descripcion);
         if ($stmt->execute()) {
-            
+            // Redirige si el registro fue exitoso
             header("Location: listar_solicitudes.php?mensaje=1");
             exit;
         } else {
@@ -25,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
+// Consulta para obtener la lista de clientes y mostrar en el formulario
 $result = $conexion->query("SELECT id, nombre, apellido FROM clientes");
 ?>
 
@@ -36,8 +43,6 @@ $result = $conexion->query("SELECT id, nombre, apellido FROM clientes");
   <link rel="stylesheet" href="../css/footer_sep.css">
   <link rel="stylesheet" href="../css/attencion.css">
   <link rel="stylesheet" href="../css/btns.css">
-  
-
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -45,10 +50,12 @@ $result = $conexion->query("SELECT id, nombre, apellido FROM clientes");
 
   <?php if (!empty($mensaje)) echo "<p>$mensaje</p>"; ?>
 
+  <!-- Formulario para registrar una nueva solicitud -->
   <form action="registrar_solicitud.php" method="POST">
     <label>Cliente:</label><br>
     <select name="cliente_id" required>
       <?php
+      // Muestra la lista de clientes en el select
       while ($row = $result->fetch_assoc()) {
           $id = htmlspecialchars($row['id']);
           $nombre = htmlspecialchars($row['nombre']);
@@ -57,7 +64,6 @@ $result = $conexion->query("SELECT id, nombre, apellido FROM clientes");
       }
       ?>
     </select><br><br>
-
     <label>Tipo de solicitud:</label><br>
     <select name="tipo" required>
       <option value="queja">Queja</option>
@@ -74,14 +80,13 @@ $result = $conexion->query("SELECT id, nombre, apellido FROM clientes");
     <div><br><a href="../index.html" class="btn">🏠 Volver al Inicio</a>
   <a href="listar_solicitudes.php" class="btn">📋 Ver Solicitudes</a></div>
   
-
-  <!------------------------Boton de whatsapp-------------------->
+  <!-- Botón de WhatsApp para contacto directo -->
   <a href="https://wa.me/51921876815" class="wsp-btn" target="_blank" title="Contáctanos por WhatsApp">
       <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
   </a>
-  <!------------------------Boton de whatsapp-------------------->
+  <!-- Fin botón WhatsApp -->
 
 </body>
 </html>
 
-<?php $conexion->close(); ?>
+<?php $conexion->close(); // Cierra la conexión ?>

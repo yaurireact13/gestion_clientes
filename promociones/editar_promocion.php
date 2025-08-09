@@ -1,9 +1,15 @@
-<?php
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
 
-$id = $_GET['id'];
-$resultado = $conexion->query("SELECT * FROM promociones WHERE id = $id");
-$promocion = $resultado->fetch_assoc();
+<?php
+// ---------------------------------------------
+// Script para mostrar el formulario de edición de una promoción
+// Obtiene los datos de la promoción por su ID
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
+
+$id = $_GET['id']; // ID de la promoción recibido por GET
+$resultado = $conexion->query("SELECT * FROM promociones WHERE id = $id"); // Consulta para obtener los datos
+$promocion = $resultado->fetch_assoc(); // Obtiene los datos como array asociativo
 ?>
 
 <!DOCTYPE html>

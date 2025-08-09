@@ -1,5 +1,10 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
+// ---------------------------------------------
+// Script para registrar una nueva actividad en el historial
+// Valida datos, inserta en la base de datos y muestra formulario
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
@@ -11,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $actividad = $_POST['actividad'];
     $gasto = floatval($_POST['gasto']);
 
+    // Valida que todos los campos sean correctos
     if ($cliente_id && $fecha && $actividad && is_numeric($gasto)) {
         $stmt = $conexion->prepare("INSERT INTO historial (cliente_id, fecha, actividad, gasto) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("issd", $cliente_id, $fecha, $actividad, $gasto);
@@ -25,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-// Obtener lista de clientes
+// Obtener lista de clientes para el formulario
 $clientes = $conexion->query("SELECT id, nombre, apellido FROM clientes");
 ?>
 

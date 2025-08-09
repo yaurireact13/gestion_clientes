@@ -1,5 +1,11 @@
+
 <?php
-// 1. Conexión a la base de datos (ajusta estos datos)
+// ---------------------------------------------
+// Script para mostrar análisis y estadísticas generales
+// Incluye conexión y consultas de análisis
+// ---------------------------------------------
+
+// Conexión a la base de datos
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -8,13 +14,13 @@ $database = "atlantic_city_db";
 $conn = new mysqli($servername, $username, $password, $database);
 
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+  die("Conexión fallida: " . $conn->connect_error);
 }
 
-// 2. Consultas para análisis
+// Consultas para obtener datos de análisis
 $totalClientes = $conn->query("SELECT COUNT(*) as total FROM clientes")->fetch_assoc()['total'];
 $clientesVIP = $conn->query("SELECT COUNT(*) as total FROM clientes WHERE segmento = 'VIP'")->fetch_assoc()['total'];
-$promocionesActivas = $conn->query("SELECT COUNT(*) as total FROM promociones")->fetch_assoc()['total']; // Ajustado según tus columnas
+$promocionesActivas = $conn->query("SELECT COUNT(*) as total FROM promociones")->fetch_assoc()['total']; // Total de promociones registradas
 
 ?>
 

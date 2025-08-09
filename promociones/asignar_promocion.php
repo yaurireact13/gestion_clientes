@@ -1,11 +1,15 @@
 <?php
-// Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
+// ---------------------------------------------
+// Script para mostrar el formulario de asignación de promoción
+// Obtiene promociones activas y segmentos únicos
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
 
 // Obtener promociones activas
 $promociones = $conexion->query("SELECT * FROM promociones WHERE estado = 'Activo'");
 
-// Obtener segmentos únicos desde clientes
+// Obtener segmentos únicos desde la tabla clientes
 $segmentos_query = $conexion->query("SELECT DISTINCT segmento FROM clientes");
 ?>
 

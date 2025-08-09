@@ -1,6 +1,12 @@
+
 <?php
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
-$resultado = $conexion->query("SELECT * FROM promociones");
+// ---------------------------------------------
+// Script para mostrar la lista de promociones registradas
+// Incluye conexión, consulta y renderizado de la tabla
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
+$resultado = $conexion->query("SELECT * FROM promociones"); // Consulta para obtener todas las promociones
 ?>
 
 <!DOCTYPE html>

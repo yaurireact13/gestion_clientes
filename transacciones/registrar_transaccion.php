@@ -1,25 +1,31 @@
 <?php
-// Conexión a la base de datos
+// ---------------------------------------------
+// Script para registrar una nueva transacción de un cliente
+// Incluye conexión a la base de datos, inserción y formulario
+// ---------------------------------------------
+
+// Conexión a la base de datos MySQL
 $conn = new mysqli("localhost", "root", "", "atlantic_city_db");
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+  die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Insertar datos al enviar el formulario
+// Si el formulario fue enviado por POST, procesa los datos
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cliente_id = $_POST['cliente_id'];
-    $tipo = $_POST['tipo'];
-    $gasto = $_POST['gasto'];
-    $fecha = date('Y-m-d H:i:s'); // Fecha actual
+  $cliente_id = $_POST['cliente_id']; // ID del cliente seleccionado
+  $tipo = $_POST['tipo'];             // Tipo de transacción (ej: apuesta, recarga)
+  $gasto = $_POST['gasto'];           // Monto de la transacción
+  $fecha = date('Y-m-d H:i:s');       // Fecha y hora actual
 
-    $sql = "INSERT INTO transacciones (cliente_id, tipo, gasto, fecha) 
-            VALUES ('$cliente_id', '$tipo', '$gasto', '$fecha')";
+  // Inserta la transacción en la base de datos
+  $sql = "INSERT INTO transacciones (cliente_id, tipo, gasto, fecha) 
+      VALUES ('$cliente_id', '$tipo', '$gasto', '$fecha')";
 
-    if ($conn->query($sql) === TRUE) {
-        $mensaje = "Transacción registrada correctamente.";
-    } else {
-        $mensaje = "Error: " . $conn->error;
-    }
+  if ($conn->query($sql) === TRUE) {
+    $mensaje = "Transacción registrada correctamente.";
+  } else {
+    $mensaje = "Error: " . $conn->error;
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -52,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <select name="cliente_id" required>
         <option value="">-- Selecciona Cliente --</option>
         <?php
+        // Consulta para obtener la lista de clientes y mostrar en el select
         $clientes = $conn->query("SELECT id, nombre FROM clientes");
         while ($cliente = $clientes->fetch_assoc()) {
             echo "<option value='" . $cliente['id'] . "'>" . $cliente['nombre'] . "</option>";

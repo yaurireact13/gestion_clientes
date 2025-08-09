@@ -1,8 +1,12 @@
 <?php
-// Conectar a la base de datos
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
+// ---------------------------------------------
+// Script para asignar una promoción a un segmento de clientes
+// Valida datos, obtiene clientes y guarda la asignación
+// ---------------------------------------------
 
-// Validar datos recibidos
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
+
+// Validar datos recibidos por POST
 if (!isset($_POST['promocion_id'], $_POST['segmento_objetivo'])) {
     die("Datos incompletos.");
 }
@@ -18,15 +22,15 @@ if (!$promo) {
     die("Promoción no encontrada.");
 }
 
-// Obtener los clientes del segmento
+// Obtener los clientes del segmento seleccionado
 $clientes = $conexion->query("SELECT id FROM clientes WHERE segmento = '$segmento_objetivo'");
 
-// Guardar asignación en promociones_clientes
+// Guardar la asignación en promociones_clientes
 $asignados = 0;
 while ($cliente = $clientes->fetch_assoc()) {
     $cliente_id = $cliente['id'];
 
-    // Evitar duplicados (opcional)
+    // Evitar duplicados
     $verificar = $conexion->query("SELECT * FROM promociones_clientes WHERE cliente_id = '$cliente_id' AND promocion_id = '$promocion_id'");
     if ($verificar->num_rows == 0) {
         $conexion->query("INSERT INTO promociones_clientes (cliente_id, promocion_id) VALUES ('$cliente_id', '$promocion_id')");
@@ -34,7 +38,7 @@ while ($cliente = $clientes->fetch_assoc()) {
     }
 }
 
-// Mensaje final
+// Mensaje final de éxito
 echo "<script>
     alert('Promoción asignada al segmento \"$segmento_objetivo\". Total asignados: $asignados.');
     window.location.href='listar_promociones.php';

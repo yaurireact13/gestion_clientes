@@ -1,14 +1,21 @@
+
 <?php
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
+// ---------------------------------------------
+// Script para mostrar el historial de actividades de los clientes
+// Incluye conexión, consulta y renderizado de la tabla
+// ---------------------------------------------
+
+$conexion = new mysqli("localhost", "root", "", "atlantic_city_db"); // Conexión a la base de datos
 if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
+  die("Error de conexión: " . $conexion->connect_error);
 }
 
+// Consulta para obtener el historial de actividades junto con el nombre del cliente
 $resultado = $conexion->query("
-    SELECT h.id, CONCAT(c.nombre, ' ', c.apellido) AS cliente, h.fecha, h.actividad, h.gasto
-    FROM historial h
-    JOIN clientes c ON h.cliente_id = c.id
-    ORDER BY h.fecha DESC
+  SELECT h.id, CONCAT(c.nombre, ' ', c.apellido) AS cliente, h.fecha, h.actividad, h.gasto
+  FROM historial h
+  JOIN clientes c ON h.cliente_id = c.id
+  ORDER BY h.fecha DESC
 ");
 ?>
 
