@@ -1,9 +1,4 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "atlantic_city_db");
-if ($conexion->connect_error) {
-  die("Conexión fallida: " . $conexion->connect_error);
-
-<?php
 // ---------------------------------------------
 // Script para mostrar reportes generales del casino
 // Incluye conexión y consultas de reportes
